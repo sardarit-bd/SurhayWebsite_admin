@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0a0a0b;
+  --paper: #f5f3ee;
+  --accent: #0e7490;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.btn-accent:hover {
+  opacity: 0.9;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background-color: white;
+}
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent);
+}

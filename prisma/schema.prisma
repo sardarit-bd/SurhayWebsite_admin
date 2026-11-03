@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Inquiry {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String   @db.VarChar(200)
+  email       String   @db.VarChar(200)
+  nachricht   String   @db.Text
+  paket       String   @db.VarChar(200)
+  leistung    Json
+  telefon     String?  @db.VarChar(100)
+  unternehmen String?  @db.VarChar(200)
+  sprache     String
+  status      String   @default("new")
+  note        String?  @db.Text
+  @@index([status])
+  @@index([createdAt])
+}
+
+model ConfiguratorRequest {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  typ           String   @db.VarChar(200)
+  extras        Json
+  wartung       String   @db.VarChar(200)
+  konfiguration String   @db.Text
+  name          String   @db.VarChar(200)
+  email         String   @db.VarChar(200)
+  anmerkungen   String?  @db.Text
+  rawData       Json
+  status        String   @default("new")
+  note          String?  @db.Text
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Setting {
+  id    String @id @default("global")
+  key   String @unique
+  value String
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  username     String   @unique @default("admin")
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
